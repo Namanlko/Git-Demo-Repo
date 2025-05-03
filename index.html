@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git & GitHub: Zero to Hero</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #24292e;
+            --secondary: #f6f8fa;
+            --accent: #0366d6;
+            --success: #28a745;
+            --warning: #ffd33d;
+            --danger: #d73a49;
+            --text: #24292e;
+            --light-text: #586069;
+            --bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), #3f4a56);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Space Mono', monospace;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            color: var(--accent);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.5rem;
+            margin-top: 3rem;
+        }
+
+        h3 {
+            color: var(--light-text);
+            margin-top: 2rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(3, 102, 214, 0.3);
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .card {
+            background: var(--secondary);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        .command {
+            font-family: 'Space Mono', monospace;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.8rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+
+        .success {
+            color: var(--success);
+        }
+
+        .warning {
+            color: var(--warning);
+        }
+
+        .danger {
+            color: var(--danger);
+        }
+
+        .terminal {
+            background-color: var(--primary);
+            color: #f0f0f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            font-family: 'Space Mono', monospace;
+            position: relative;
+        }
+
+        .terminal::before {
+            content: 'terminal';
+            position: absolute;
+            top: -12px;
+            left: 15px;
+            background-color: var(--primary);
+            color: var(--warning);
+            padding: 0 10px;
+            font-size: 0.8rem;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .terminal .prompt {
+            color: var(--success);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 5rem;
+            padding: 2rem;
+            color: var(--light-text);
+            border-top: 1px solid var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Git & GitHub: Zero to Hero</h1>
+            <p class="subtitle">Master version control and collaborative coding with this comprehensive guide from beginner to advanced concepts.</p>
+            <a href="#getting-started" class="btn">Start Learning</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="getting-started">
+            <h2>Getting Started with Git</h2>
+            <p>Git is a distributed version control system that helps developers track changes in their code and collaborate with others.</p>
+            
+            <div class="terminal">
+                <div><span class="prompt">$</span> git --version</div>
+                <div>git version 2.32.0</div>
+                <br>
+                <div><span class="prompt">$</span> git config --global user.name "Your Name"</div>
+                <div><span class="prompt">$</span> git config --global user.email "your.email@example.com"</div>
+            </div>
+            
+            <h3>Initialize a Repository</h3>
+            <div class="command">git init</div>
+            <p>This creates a new Git repository in your current directory.</p>
+        </section>
+
+        <section id="basic-commands">
+            <h2>Basic Git Commands</h2>
+            
+            <div class="card-container">
+                <div class="card">
+                    <h3>Tracking Changes</h3>
+                    <div class="command">git add filename</div>
+                    <p>Stage a specific file for commit.</p>
+                    <div class="command">git add .</div>
+                    <p>Stage all changed files.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Committing Changes</h3>
+                    <div class="command">git commit -m "Commit message"</div>
+                    <p>Commit your staged changes with a message.</p>
+                    <div class="command">git status</div>
+                    <p>View the status of your working directory.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Viewing History</h3>
+                    <div class="command">git log</div>
+                    <p>Show commit history.</p>
+                    <div class="command">git log --oneline --graph</div>
+                    <p>Compact view with branch visualization.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="branching">
+            <h2>Branching & Merging</h2>
+            <p>Branches allow you to develop features, fix bugs, or safely experiment with new ideas in a contained area of your repository.</p>
+            
+            <div class="card-container">
+                <div class="card">
+                    <h3>Create & Switch Branches</h3>
+                    <div class="command">git branch feature-x</div>
+                    <p>Create a new branch named "feature-x".</p>
+                    <div class="command">git checkout feature-x</div>
+                    <p>Switch to the "feature-x" branch.</p>
+                    <div class="command">git checkout -b hotfix</div>
+                    <p>Create and switch to a new "hotfix" branch.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Merging</h3>
+                    <div class="command">git merge feature-x</div>
+                    <p>Merge "feature-x" branch into current branch.</p>
+                    <div class="command">git branch -d feature-x</div>
+                    <p>Delete the "feature-x" branch.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Resolving Conflicts</h3>
+                    <p>When merge conflicts occur:</p>
+                    <ol>
+                        <li>Edit the conflicted files</li>
+                        <li>Mark as resolved with <span class="command">git add</span></li>
+                        <li>Complete the merge with <span class="command">git commit</span></li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section id="github">
+            <h2>Working with GitHub</h2>
+            <p>GitHub is a platform for hosting Git repositories and collaborating with others.</p>
+            
+            <h3>Remote Repositories</h3>
+            <div class="command">git remote add origin https://github.com/user/repo.git</div>
+            <p>Add a remote repository.</p>
+            
+            <div class="command">git push -u origin main</div>
+            <p>Push your local commits to GitHub (first time).</p>
+            
+            <div class="command">git clone https://github.com/user/repo.git</div>
+            <p>Clone an existing repository from GitHub.</p>
+            
+            <h3>Collaboration Workflows</h3>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Fork & Pull</h3>
+                    <ol>
+                        <li>Fork the repository on GitHub</li>
+                        <li>Clone your fork locally</li>
+                        <li>Create a feature branch</li>
+                        <li>Push changes to your fork</li>
+                        <li>Open a pull request</li>
+                    </ol>
+                </div>
+                
+                <div class="card">
+                    <h3>Shared Repository</h3>
+                    <ol>
+                        <li>Team members are added as collaborators</li>
+                        <li>Everyone clones the main repository</li>
+                        <li>Work on feature branches</li>
+                        <li>Push to main repository</li>
+                        <li>Create pull requests for review</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section id="advanced">
+            <h2>Advanced Topics</h2>
+            
+            <h3>Rebasing</h3>
+            <div class="command">git rebase main</div>
+            <p>Reapply your branch's commits on top of main branch.</p>
+            
+            <h3>Stashing</h3>
+            <div class="command">git stash</div>
+            <p>Temporarily save uncommitted changes.</p>
+            <div class="command">git stash pop</div>
+            <p>Restore the most recently stashed changes.</p>
+            
+            <h3>Undoing Changes</h3>
+            <div class="command">git reset --hard HEAD</div>
+            <p>Discard all uncommitted changes.</p>
+            <div class="command">git revert commit-hash</div>
+            <p>Create a new commit that undoes a previous commit.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Git & GitHub: Zero to Hero</p>
+            <p>© 2023 | Continue your learning journey on <a href="https://github.com" style="color: var(--accent);">GitHub</a></p>
+        </div>
+    </footer>
+</body>
+</html>
